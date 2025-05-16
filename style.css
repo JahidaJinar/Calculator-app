@@ -1,0 +1,260 @@
+:root {
+  /* Theme 1 */
+  --theme1-main-bg: hsl(222, 26%, 31%);
+  --theme1-keypad-bg: hsl(223, 31%, 20%);
+  --theme1-screen-bg: hsl(224, 36%, 15%);
+  --theme1-key-bg: hsl(225, 21%, 49%);
+  --theme1-key-shadow: hsl(224, 28%, 35%);
+  --theme1-red-bg: hsl(6, 63%, 50%);
+  --theme1-red-shadow: hsl(6, 70%, 34%);
+  --theme1-light-key: hsl(30, 25%, 89%);
+  --theme1-light-shadow: hsl(28, 16%, 65%);
+  --theme1-text: hsl(221, 14%, 31%);
+  --theme1-white: hsl(0, 0%, 100%);
+
+  /* Theme 2 */
+  --theme2-main-bg: hsl(0, 0%, 90%);
+  --theme2-keypad-bg: hsl(0, 5%, 81%);
+  --theme2-screen-bg: hsl(0, 0%, 93%);
+  --theme2-cyan-bg: hsl(185, 42%, 37%);
+  --theme2-cyan-shadow: hsl(185, 58%, 25%);
+  --theme2-orange-bg: hsl(25, 98%, 40%);
+  --theme2-orange-shadow: hsl(25, 99%, 27%);
+  --theme2-light-key: hsl(45, 7%, 89%);
+  --theme2-light-shadow: hsl(35, 11%, 61%);
+  --theme2-text: hsl(60, 10%, 19%);
+
+  /* Theme 3 */
+  --theme3-main-bg: hsl(268, 75%, 9%);
+  --theme3-keypad-bg: hsl(268, 71%, 12%);
+  --theme3-violet-bg: hsl(281, 89%, 26%);
+  --theme3-magenta-shadow: hsl(285, 91%, 52%);
+  --theme3-cyan-bg: hsl(176, 100%, 44%);
+  --theme3-cyan-shadow: hsl(177, 92%, 70%);
+  --theme3-dark-violet: hsl(268, 47%, 21%);
+  --theme3-magenta: hsl(290, 70%, 36%);
+  --theme3-text-yellow: hsl(52, 100%, 62%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "League Spartan", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--theme1-main-bg);
+  transition: background-color 0.3s;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.theme-switcher {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.toggle {
+  position: relative;
+  background-color: var(--theme1-keypad-bg);
+  border-radius: 20px;
+  padding: 0.3rem;
+  width: 70px;
+  height: 26px;
+}
+
+.labels {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.8rem;
+}
+
+.switch {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--theme1-red-bg);
+  transition: left 0.3s;
+  cursor: pointer;
+  left: 3px;
+}
+
+.display {
+  background-color: var(--theme1-screen-bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  text-align: right;
+  color: white;
+  font-size: 2.5rem;
+  overflow: hidden;
+}
+
+.keypad {
+  background-color: var(--theme1-keypad-bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.btn {
+  border: none;
+  padding: 0.8rem;
+  border-radius: 5px;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.btn:active {
+  transform: translateY(2px);
+}
+
+.number {
+  background-color: var(--theme1-light-key);
+  color: var(--theme1-text);
+  box-shadow: 0 4px var(--theme1-light-shadow);
+}
+
+.operator {
+  background-color: var(--theme1-light-key);
+  color: var(--theme1-text);
+  box-shadow: 0 4px var(--theme1-light-shadow);
+}
+
+.del,
+.reset {
+  background-color: var(--theme1-key-bg);
+  color: white;
+  box-shadow: 0 4px var(--theme1-key-shadow);
+  font-size: 1.5rem;
+}
+
+.equals {
+  background-color: var(--theme1-red-bg);
+  color: white;
+  box-shadow: 0 4px var(--theme1-red-shadow);
+}
+
+.reset,
+.equals {
+  grid-column: span 2;
+}
+
+/* Theme 2 */
+body[data-theme="2"] {
+  background-color: var(--theme2-main-bg);
+}
+
+body[data-theme="2"] .header {
+  color: var(--theme2-text);
+}
+
+body[data-theme="2"] .toggle {
+  background-color: var(--theme2-keypad-bg);
+}
+
+body[data-theme="2"] .switch {
+  background-color: var(--theme2-orange-bg);
+}
+
+body[data-theme="2"] .display {
+  background-color: var(--theme2-screen-bg);
+  color: var(--theme2-text);
+}
+
+body[data-theme="2"] .keypad {
+  background-color: var(--theme2-keypad-bg);
+}
+
+body[data-theme="2"] .number,
+body[data-theme="2"] .operator {
+  background-color: var(--theme2-light-key);
+  color: var(--theme2-text);
+  box-shadow: 0 4px var(--theme2-light-shadow);
+}
+
+body[data-theme="2"] .del,
+body[data-theme="2"] .reset {
+  background-color: var(--theme2-cyan-bg);
+  box-shadow: 0 4px var(--theme2-cyan-shadow);
+}
+
+body[data-theme="2"] .equals {
+  background-color: var(--theme2-orange-bg);
+  box-shadow: 0 4px var(--theme2-orange-shadow);
+}
+
+/* Theme 3 */
+body[data-theme="3"] {
+  background-color: var(--theme3-main-bg);
+}
+
+body[data-theme="3"] .header {
+  color: var(--theme3-text-yellow);
+}
+
+body[data-theme="3"] .toggle {
+  background-color: var(--theme3-keypad-bg);
+}
+
+body[data-theme="3"] .switch {
+  background-color: var(--theme3-cyan-bg);
+}
+
+body[data-theme="3"] .display {
+  background-color: var(--theme3-keypad-bg);
+  color: var(--theme3-text-yellow);
+}
+
+body[data-theme="3"] .keypad {
+  background-color: var(--theme3-keypad-bg);
+}
+
+body[data-theme="3"] .number {
+  background-color: var(--theme3-dark-violet);
+  color: var(--theme3-text-yellow);
+  box-shadow: 0 4px var(--theme3-magenta);
+}
+
+body[data-theme="3"] .operator {
+  background-color: var(--theme3-dark-violet);
+  color: var(--theme3-text-yellow);
+  box-shadow: 0 4px var(--theme3-magenta);
+}
+
+body[data-theme="3"] .del,
+body[data-theme="3"] .reset {
+  background-color: var(--theme3-violet-bg);
+  box-shadow: 0 4px var(--theme3-magenta-shadow);
+}
+
+body[data-theme="3"] .equals {
+  background-color: var(--theme3-cyan-bg);
+  box-shadow: 0 4px var(--theme3-cyan-shadow);
+  color: var(--theme3-main-bg);
+}
