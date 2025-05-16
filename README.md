@@ -1,5 +1,7 @@
 # Frontend Mentor - Calculator app
 
+My Design: https://jahidajinar.github.io/Calculator-app/
+
 ![Design preview for the Calculator app coding challenge](./design/desktop-preview.jpg)
 
 ## Welcome! 👋
